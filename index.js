@@ -1,7 +1,5 @@
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
-const dump = require('sharp-pad-dump')
-
 const old = Object.prototype.$getJSON
 Object.prototype.$getJSON = function () {
   if (React.isValidElement(this)) {
@@ -13,5 +11,3 @@ Object.prototype.$getJSON = function () {
 
   return old ? old.apply(this) : undefined
 }
-
-module.exports = dump
